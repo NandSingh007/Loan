@@ -1,0 +1,139 @@
+<%- include("include/header.ejs") -%>
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>User Details</h1>
+    </div><!-- End Page Title -->
+
+    <% if (user) { %>
+        <section class="section mt-2">
+            <div class="container-fluid shadow pt-2 pb-2" style="background:#fff">
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                    <h5 class="card-title">Profile Details</h5>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Full Name</div>
+                        <div class="col-lg-9 col-md-8"><%= user.userRegistration.Username %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Phone</div>
+                        <div class="col-lg-9 col-md-8"><%= user.userRegistration.phoneNumber %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Email</div>
+                        <div class="col-lg-9 col-md-8"><%= user.userRegistration.email %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Address</div>
+                        <div class="col-lg-9 col-md-8"><%= user.userRegistration.address %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Income</div>
+                        <div class="col-lg-9 col-md-8"><%= user.userRegistration.income %></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 label">Job Type</div>
+                        <div class="col-lg-9 col-md-8"><%= user.userRegistration.jobType %></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section mt-2">
+            <div class="container-fluid shadow pt-2 pb-2" style="background:#fff">
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                    <h5 class="card-title">Document Details</h5>
+                    <% if (user.userFileUploads.length > 0) { %>
+                        <% const doc = user.userFileUploads[0]; %>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">User Photo</div>
+                            <div class="col-lg-9 col-md-8">
+                                <% if (doc.profilePhotoUpload) { %>
+                                    <img src="data:image/jpeg;base64,<%= doc.profilePhotoUpload %>" alt="User Photo" style="max-width: 20%; height: auto;">
+                                <% } else { %>
+                                    <div>No User Photo</div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">AdhaarCard Front</div>
+                            <div class="col-lg-9 col-md-8">
+                                <% if (doc.adharcardFront) { %>
+                                    <img src="data:image/jpeg;base64,<%= doc.adharcardFront %>" alt="AdhaarCard Front" style="max-width: 20%; height: auto;">
+                                <% } else { %>
+                                    <div>No AdhaarCard Front</div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">AdhaarCard Back</div>
+                            <div class="col-lg-9 col-md-8">
+                                <% if (doc.adharcardBack) { %>
+                                    <img src="data:image/jpeg;base64,<%= doc.adharcardBack %>" alt="AdhaarCard Back" style="max-width: 20%; height: auto;">
+                                <% } else { %>
+                                    <div>No AdhaarCard Back</div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">PanCard</div>
+                            <div class="col-lg-9 col-md-8">
+                                <% if (doc.pancardPhoto) { %>
+                                    <img src="data:image/jpeg;base64,<%= doc.pancardPhoto %>" alt="PanCard" style="max-width: 20%; height: auto;">
+                                <% } else { %>
+                                    <div>No PanCard</div>
+                                <% } %>
+                            </div>
+                        </div>
+                        
+                    <% } else { %>
+                        <div class="alert alert-warning">No document details available</div>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+
+        <section class="section mt-2">
+            <div class="container-fluid shadow pt-2 pb-2" style="background:#fff">
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                    <h5 class="card-title">Loan Details</h5>
+                    <% if (user.userFileUploads.length > 0) { %>
+                        <% const loanDetails = user.userFileUploads[0]; %>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Loan Amount</div>
+                            <div class="col-lg-9 col-md-8"><%= loanDetails.loanAmount %></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Duration</div>
+                            <div class="col-lg-9 col-md-8"><%= loanDetails.duration %> years</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Interest</div>
+                            <div class="col-lg-9 col-md-8"><%= loanDetails.loanType %></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 label">Monthly EMI</div>
+                            <div class="col-lg-9 col-md-8">
+                                <% 
+                                    const P = parseFloat(loanDetails.loanAmount); // Principal loan amount
+                                    const annualInterestRate = parseFloat(loanDetails.loanType); // Annual interest rate
+                                    const r = (annualInterestRate / 100) / 12; // Monthly interest rate
+                                    const n = parseFloat(loanDetails.duration) * 12; // Loan duration in months
+
+                                    const emi = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+                                %>
+                                <%= emi.toFixed(2) %>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div class="alert alert-warning">No loan details available</div>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+
+    <% } else { %>
+        <div class="alert alert-danger">User not found</div>
+    <% } %>
+
+    <hr>
+</main>
+<%- include("include/footer.ejs") -%>

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Quick - Fast and Reliable Loan Solutions</title>
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Loan Quick offers fast and reliable loan solutions to help you achieve your dreams. Apply now and get approved quickly.">
+    <meta name="keywords" content="loan, quick loan, fast loan, reliable loan, loan solutions">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Loan Quick - Fast and Reliable Loan Solutions">
+    <meta property="og:description" content="Loan Quick offers fast and reliable loan solutions to help you achieve your dreams. Apply now and get approved quickly.">
+    <meta property="og:image" content="path/to/your/image.jpg">
+    <meta property="og:url" content="https://www.loanquick.com">
+
+   <!-- Favicon -->
+   <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <style>
+/* Example CSS */
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand img {
+    width: 70px;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #ddd !important;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+/* Styles for the profile photo container */
+.profile-photo-container {
+    width: 100px; /* Size of the circular profile photo */
+    height: 100px;
+    border-radius: 50%; /* Circular shape */
+    overflow: hidden; /* Hide overflow to keep the circle shape */
+    border: 2px solid #ccc; /* Border around the photo */
+    margin-top: 10px; /* Spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 100%; /* Fill the container */
+    height: 100%;
+    object-fit: cover; /* Cover the container */
+}
+
+#cameraContainer {
+    margin-top: 10px;
+    text-align: center; /* Center the content */
+}
+
+
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 40px 0;
+}
+
+.section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.connect {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-link {
+    color: #ffffff;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-link:hover {
+    color: #007bff;
+    transform: scale(1.2);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.column {
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    position: relative;
+    font-weight: bold;
+}
+
+.title i {
+    margin-right: 10px;
+}
+
+.highlight-red {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.highlight-info {
+    color: #17a2b8;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.highlight-slateblue {
+    color: slateblue;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link:hover {
+    color: #0056b3;
+}
+
+.copy {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #23272b;
+}
+
+.copy .link {
+    color: #ffffff;
+}
+/* Improved Form Styles */
+.form-section {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #343a40;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.form-group input[type="file"],
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group input[type="file"] {
+    border: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+.progress-container {
+    margin-bottom: 30px;
+}
+
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.step-indicator {
+    text-align: center;
+    flex: 1;
+}
+
+.step-indicator.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.step-indicator.completed {
+    color: #28a745;
+}
+
+.step-indicator .circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.step-indicator.active .circle {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.step-indicator.completed .circle {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.step-indicator .label {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 9999;
+    display: none;
+}
+
+.loading-circle {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 8px solid #fff;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+    margin-right: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .connect {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-link {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .highlight-red, .highlight-info, .highlight-slateblue {
+        font-size: 14px;
+    }
+
+    .connect {
+        font-size: 14px;
+    }
+}
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label Styles */
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #343a40;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* File Input Styles */
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #495057;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* File Input Hover and Focus Styles */
+.form-group input[type="file"]:hover,
+.form-group input[type="file"]:focus {
+    border-color: #007bff;
+    background-color: #f8f9fa;
+    outline: none;
+}
+
+/* File Input Disabled Styles */
+.form-group input[type="file"][disabled] {
+    cursor: not-allowed;
+    background-color: #e9ecef;
+}
+
+
+    </style>
+</head>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#"><img src="/assets/img/quick.png" width="70px" alt="QuickLoan Logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main body -->
+<main class="container my-5">
+    <div class="form-section">
+        <div class="progress-container">
+            <div class="step-indicators">
+                <div class="step-indicator active">
+                    <div class="circle">1</div>
+                    <div class="label">Documentation</div>
+                </div>
+                <div class="step-indicator">
+                    <div class="circle">2</div>
+                    <div class="label">Loan Type</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form 1 -->
+     <!-- Step 1 -->
+     <div class="form-step step-1">
+        <h2>Document and Personal Information</h2>
+        <form id="documentForm" enctype="multipart/form-data">
+            <div class="profile-photo-container">
+                <img id="capturedPhoto" src="" alt="Captured Photo" class="profile-photo" style="display:none;"/>
+            </div>
+            <input type="hidden" id="capturedPhotoData" name="capturedPhotoData" />
+
+            <div class="form-group">
+                <label for="profilePhotoUpload">Profile Photo</label>
+                <button type="button" class="btn btn-secondary" onclick="openCamera()">Capture Photo</button>
+                <button type="button" class="btn btn-secondary" onclick="openGallery()">Select from Gallery</button>
+                <input type="file" id="profilePhotoUpload" name="profilePhotoUpload" accept="image/*" style="display:none;" onchange="previewPhoto(event)" />
+            </div>
+
+            <div class="form-group">
+                <label for="adharcardFront">Aadhaar Card Front Photo</label>
+                <input type="file" id="adharcardFront" name="adharcardFront" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="adharcardBack">Aadhaar Card Back Photo</label>
+                <input type="file" id="adharcardBack" name="adharcardBack" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="adharcardNumber">Aadhaar Card Number</label>
+                <input type="text" id="adharcardNumber" name="adharcardNumber" placeholder="Enter Aadhaar number" required>
+            </div>
+            <div class="form-group">
+                <label for="pancardPhoto">PAN Card Photo</label>
+                <input type="file" id="pancardPhoto" name="pancardPhoto" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="pancardNumber">PAN Card Number</label>
+                <input type="text" id="pancardNumber" name="pancardNumber" placeholder="Enter PAN number" required>
+            </div>
+
+            <!-- Button to proceed to the next step -->
+            <button type="button" class="btn btn-primary" onclick="handleNextStep()">Next</button>
+        </form>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="form-step step-2 hidden">
+        <h2>Loan Details</h2>
+        <form id="loanForm">
+            <div class="form-group">
+                <label for="loanAmount">Loan Amount</label>
+                <input type="number" id="loanAmount" name="loanAmount" placeholder="Enter loan amount" required>
+            </div>
+            <div class="form-group">
+                <label for="Duration">Duration</label>
+                <input type="number" id="Duration" name="Duration" placeholder="Enter Duration" required>
+            </div>
+            <div class="form-group">
+                <label for="loanType">Loan Type</label>
+                <select class="form-control" id="loanType" name="loanType">
+                    <option value="">Select loan type</option>
+                    <!-- Options will be populated here -->
+                </select>
+            </div>
+            
+            <button type="button" class="btn btn-primary" onclick="submitForms()">Submit</button>
+        </form>
+    </div>
+
+    <!-- Camera Container -->
+    <div id="cameraContainer" style="display:none;">
+        <video id="cameraStream" autoplay></video>
+        <canvas id="photoCanvas" style="display:none;"></canvas>
+        <button type="button" class="btn btn-secondary" onclick="capturePhoto()">Capture</button>
+        <button type="button" class="btn btn-secondary" onclick="stopCamera()">Close Camera</button>
+    </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="section">
+            <div class="connect">Connect with us</div>
+            <div class="social-links">
+                <a href="https://facebook.com" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="copy">
+            &copy; 2024 <a href="#" class="link">QuickLoan</a>. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-circle"></div>
+    <div>Loading...</div>
+</div>
+
+<script>// Function to collect all form data including files
+  function collectFormData() {
+            const documentForm = document.getElementById('documentForm');
+            const loanForm = document.getElementById('loanForm');
+
+            const formData = new FormData();
+
+            // Collect files from the documentForm
+            const files = [
+                { id: 'profilePhotoUpload', name: 'profilePhotoUpload' },
+                { id: 'adharcardFront', name: 'adharcardFront' },
+                { id: 'adharcardBack', name: 'adharcardBack' },
+                { id: 'pancardPhoto', name: 'pancardPhoto' }
+            ];
+
+            files.forEach(({ id, name }) => {
+                const fileInput = document.getElementById(id);
+                if (fileInput.files[0]) {
+                    formData.append(name, fileInput.files[0]);
+                }
+            });
+
+            // Collect fields from the documentForm
+            new FormData(documentForm).forEach((value, key) => {
+                formData.append(key, value);
+            });
+
+            // Collect fields from the loanForm
+            new FormData(loanForm).forEach((value, key) => {
+                formData.append(key, value);
+            });
+
+            return formData;
+        }
+        function decodeJWT(token) {
+    // Split the token into parts
+    const parts = token.split('.');
+    
+    // Ensure there are 3 parts
+    if (parts.length !== 3) {
+        throw new Error('Invalid token');
+    }
+    
+    // Decode the payload (base64Url)
+    const payload = parts[1];
+    const decodedPayload = atob(payload.replace(/-/g, '+').replace(/_/g, '/'));
+    
+    // Parse the JSON payload
+    return JSON.parse(decodedPayload);
+}
+
+function submitForms() {
+    if (validateForm('loanForm')) {
+        const formData = new FormData();
+        const profilePhotoUpload = document.getElementById('profilePhotoUpload').files[0];
+        const adharcardFront = document.getElementById('adharcardFront').files[0];
+        const adharcardBack = document.getElementById('adharcardBack').files[0];
+        const pancardPhoto = document.getElementById('pancardPhoto').files[0];
+
+        const capturedPhotoData = document.getElementById('capturedPhotoData').value;
+        const adharcardNumber = document.getElementById('adharcardNumber').value;
+        const pancardNumber = document.getElementById('pancardNumber').value;
+        const loanAmount = document.getElementById('loanAmount').value;
+        const duration = document.getElementById('Duration').value; // Ensure this matches the form input name
+      
+        const loanType = document.getElementById('loanType').value;
+
+        // Retrieve token and decode it to get userId
+        const token = localStorage.getItem('tokenData');
+        if (!token) {
+            alert('Token is missing. Please login again.');
+            return;
+        }
+
+        try {
+            const tokenData = decodeJWT(token);
+            const userId = tokenData.user.id; // Adjust this if the user ID is stored differently in the payload
+
+            if (!userId) {
+                alert('User ID is missing from the token.');
+                return;
+            }
+
+            // Append form fields to FormData
+            if (profilePhotoUpload) formData.append('profilePhotoUpload', profilePhotoUpload);
+            if (adharcardFront) formData.append('adharcardFront', adharcardFront);
+            if (adharcardBack) formData.append('adharcardBack', adharcardBack);
+            if (pancardPhoto) formData.append('pancardPhoto', pancardPhoto);
+            if (capturedPhotoData) formData.append('capturedPhotoData', capturedPhotoData);
+            if (adharcardNumber) formData.append('adharcardNumber', adharcardNumber);
+            if (pancardNumber) formData.append('pancardNumber', pancardNumber);
+            if (loanAmount) formData.append('loanAmount', loanAmount);
+            if (duration) formData.append('duration', duration); // Ensure this matches the form input name
+          
+            if(loanType) formData.append('loanType',loanType)
+
+            // Append userId to FormData
+            formData.append('userId', userId);
+
+            console.log('Collected form data:', formData);
+
+            // Show loading overlay
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            let minLoadingTime = false;
+            const hideLoadingOverlay = () => {
+                if (minLoadingTime) {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                    window.location.href = '/DownLoad';
+                }
+            };
+
+            setTimeout(() => {
+                minLoadingTime = true;
+                hideLoadingOverlay();
+            }, 10000);
+
+            fetch('https://quicklone.com/back/frontsubmitForm', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        throw new Error(`Network response was not ok: ${text}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                hideLoadingOverlay();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred: ' + error.message);
+                document.getElementById('loadingOverlay').style.display = 'none';
+            });
+        } catch (error) {
+            alert('Failed to decode token: ' + error.message);
+        }
+    }
+}
+
+        // Function to handle the next step
+        function handleNextStep() {
+            if (validateForm('documentForm')) {
+                showStep(2);
+            }
+        }
+
+        // Function to show a specific step
+        function showStep(step) {
+            document.querySelectorAll('.form-step').forEach((element, index) => {
+                element.classList.toggle('hidden', index + 1 !== step);
+            });
+        }
+
+        // Function to validate a form by its ID
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            const isValid = form.checkValidity();
+            if (!isValid) {
+                form.reportValidity(); // Show browser's default validation message
+            }
+            return isValid;
+        }
+
+        // Function to open the camera
+        function openCamera() {
+            document.getElementById('cameraContainer').style.display = 'block';
+            startCamera();
+        }
+
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                document.getElementById('cameraStream').srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing the camera:', error);
+                alert('Could not access the camera. Please check your camera permissions.');
+            }
+        }
+
+        function capturePhoto() {
+            const video = document.getElementById('cameraStream');
+            const canvas = document.getElementById('photoCanvas');
+            const context = canvas.getContext('2d');
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const dataURL = canvas.toDataURL('image/png');
+            document.getElementById('capturedPhoto').src = dataURL;
+            document.getElementById('capturedPhoto').style.display = 'block';
+            document.getElementById('capturedPhotoData').value = dataURL;
+
+            document.getElementById('cameraContainer').style.display = 'none';
+            stopCamera();
+        }
+
+        function stopCamera() {
+            const stream = document.getElementById('cameraStream').srcObject;
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+            }
+        }
+
+        // Function to handle profile photo selection from gallery
+        function openGallery() {
+            document.getElementById('profilePhotoUpload').click();
+        }
+
+        // Function to preview the selected photo from gallery
+        function previewPhoto(event) {
+            const input = event.target;
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('capturedPhoto').src = e.target.result;
+                    document.getElementById('capturedPhoto').style.display = 'block';
+                    document.getElementById('capturedPhotoData').value = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+<script>
+  async function fetchLoanTypes() {
+    try {
+        const response = await fetch('https://quicklone.com/GetLoanTypes');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        // Pass the data to the function that updates the dropdown
+        populateLoanTypes(data);
+    } catch (error) {
+        console.error('Error fetching loan types:', error);
+    }
+}
+
+function populateLoanTypes(loanTypes) {
+    const loanTypeSelect = document.getElementById('loanType');
+
+    // Clear existing options (excluding the placeholder)
+    loanTypeSelect.innerHTML = '<option value="">Select loan type</option>';
+
+    // Populate with new options
+    loanTypes.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.loanType; // Use loanType for the value
+        option.textContent = item.loanType; // Use loanType for the display text
+        loanTypeSelect.appendChild(option);
+    });
+}
+
+// Initialize on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    fetchLoanTypes();
+});
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

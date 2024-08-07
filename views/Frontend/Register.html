@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Loan Quick</title>
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Login to Loan Quick to access your account and manage your loans efficiently with our reliable and flexible loan solutions.">
+    <meta name="keywords" content="loan, quick loan, fast loan, reliable loan, loan solutions, login, sign in">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Login - Loan Quick">
+    <meta property="og:description" content="Login to Loan Quick to access your account and manage your loans efficiently with our reliable and flexible loan solutions.">
+    <meta property="og:image" content="path/to/your/image.jpg">
+    <meta property="og:url" content="https://www.loanquick.com/login">
+
+    <!-- Favicon -->
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1c3b43;
+        }
+
+        .navbar-brand img {
+            width: 70px;
+        }
+
+        .nav-link {
+            color: rgb(196, 151, 0) !important;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ddd !important;
+        }
+
+        .login-btn {
+            padding: 6px 15px;
+            border-radius: 10px;
+            background-color: rgb(6, 99, 192);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: rgb(5, 89, 172);
+        }
+
+        /* Login Section Styles */
+        .login-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('/assets/img/lnbg2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            color: white;
+            padding: 20px;
+        }
+
+        .login-section .left-side,
+        .login-section .right-side {
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .login-section .left-side h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ffeb3b; /* Bright yellow for contrast */
+        }
+
+        .login-section .left-side p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e0e0e0; /* Light gray for readability */
+        }
+
+        .login-section .right-side h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            color: #ff4081;
+        }
+
+        .form-control {
+            background-color: #333;
+            border: 1px solid #ff4081;
+            color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #888;
+        }
+
+        .btn-primary {
+            background-color: #ff4081;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff6f91;
+        }
+
+        .login-text {
+            text-align: center;
+            margin-top: 20px;
+            color: #ccc;
+        }
+
+        .login-text a {
+            color: #ff4081;
+            text-decoration: none;
+        }
+
+        .login-text a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1c3b43;
+            color: white;
+            width: 100%;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .login-section {
+                flex-direction: column;
+            }
+
+            .login-section .left-side,
+            .login-section .right-side {
+                width: 90%;
+            }
+
+            .login-section .left-side h2,
+            .login-section .right-side h2 {
+                font-size: 20px;
+            }
+
+            .login-section .left-side p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><img src="/assets/img/quick.png" width="70px" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                </li>
+              
+             
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="left-side">
+            <h2>Welcome Back!</h2>
+            <p>Log in to your account to manage your loans and access our flexible loan solutions. Our platform ensures that you have all the tools you need to handle your financial needs efficiently. Experience seamless and reliable service with Loan Quick.</p>
+        </div>
+        <div class="right-side">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="number" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <p class="login-text">Don't have an account? <a href="register.html">Sign up here</a></p>
+            <p class="login-text">Forgot your password? <a href="#" data-toggle="modal" data-target="#forgotPasswordModal">Reset it here</a></p>
+        </div>
+    </section>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forgotPasswordModalLabel">Reset Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="forgotPasswordForm">
+                        <div class="form-group">
+                            <label for="resetPhoneNumber">Phone Number</label>
+                            <input type="number" class="form-control" id="resetPhoneNumber" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" class="form-control" id="newPassword" placeholder="Enter your new password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Loan Quick. All rights reserved.
+    </div>
+   
+    <script>
+     document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const password = document.getElementById('password').value;
+
+    const data = { phoneNumber, password };
+
+    try {
+        const response = await fetch('https://quicklone.com/back/frontlogin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Login successful!');
+
+            // Handle token and status data
+            const expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 2); // Set expiration date to 2 days from now
+            const tokenData = {
+                token: result.token,
+                expiration: expirationDate.getTime()
+            };
+            localStorage.setItem('tokenData', JSON.stringify(tokenData));
+            
+            // Redirect based on statuses
+            const { processingFeeStatus, securityStatus } = result;
+            
+            if (processingFeeStatus === 1 && securityStatus === 1) {
+                window.location.href = '/finalPage';
+            } else if (processingFeeStatus === 1 && securityStatus === 0) {
+                window.location.href = '/Download';
+            } else if (processingFeeStatus === 0 && securityStatus === 0) {
+                window.location.href = '/Other';
+            } else {
+                // If the combination does not match any of the above, handle as needed
+                window.location.href = '/Other';
+            }
+        } else {
+            alert(`Login failed: ${result.msg}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while logging in. Please try again later.');
+    }
+});
+
+
+        document.getElementById('forgotPasswordForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const phoneNumber = document.getElementById('resetPhoneNumber').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            const data = { phoneNumber, newPassword };
+
+            try {
+                const response = await fetch('https://quicklone.com/forgot-password-front', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Password reset successful!');
+                    $('#forgotPasswordModal').modal('hide');
+                } else {
+                    alert(`Password reset failed: ${result.msg}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while resetting the password. Please try again later.');
+            }
+        });
+    </script>
+    <!-- Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

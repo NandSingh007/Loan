@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Quick - Fast and Reliable Loan Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Loan Quick offers fast and reliable loan solutions to help you achieve your dreams. Apply now and get approved quickly.">
+    <meta name="keywords" content="loan, quick loan, fast loan, reliable loan, loan solutions">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Loan Quick - Fast and Reliable Loan Solutions">
+    <meta property="og:description" content="Loan Quick offers fast and reliable loan solutions to help you achieve your dreams. Apply now and get approved quickly.">
+    <meta property="og:image" content="path/to/your/image.jpg">
+    <meta property="og:url" content="https://www.loanquick.com">
+
+    <!-- Favicon -->
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <style>
+/* Example CSS */
+
+/* Navbar Styles */
+.navbar {
+  background-color: #343a40;
+}
+
+.navbar-brand img {
+  width: 70px;
+}
+
+.nav-link {
+  color: white !important;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #ddd !important;
+}
+
+.login-btn {
+  padding: 6px 15px;
+  border-radius: 10px;
+  background-color: rgb(6, 99, 192);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: rgb(5, 89, 172);
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: #5120ba;
+  color: white;
+  border-bottom: none;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.close {
+  color: rgb(146, 29, 29);
+  opacity: 1;
+}
+
+.close:hover {
+  color: #ddd;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background-color: rgb(6, 99, 192);
+  border-color: rgb(6, 99, 192);
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: rgb(5, 89, 172);
+}
+
+/* Links below the form */
+.register-link, .forgot-password-link {
+  color: rgb(6, 99, 192);
+  font-weight: bold;
+}
+
+.register-link:hover, .forgot-password-link:hover {
+  color: rgb(5, 89, 172);
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 40px 0;
+}
+
+.section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.connect {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-link {
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-link:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.column {
+  flex: 1;
+  min-width: 220px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  position: relative;
+  font-weight: bold;
+}
+
+.title i {
+  margin-right: 10px;
+}
+
+.highlight-red {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.highlight-info {
+  color: #17a2b8;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.highlight-slateblue {
+  color: slateblue;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
+.copy {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #23272b;
+}
+
+.copy .link {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .connect {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-link {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .highlight-red, .highlight-info, .highlight-slateblue {
+    font-size: 14px;
+  }
+
+  .connect {
+    font-size: 14px;
+  }
+}
+        /* Customer Review Slider */
+.customer-review-slider {
+    padding: 60px 20px;
+    /* background-color: #f9f9f9; */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.customer-review-box {
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+    /* width: 80%; */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.customer-review-box:hover {
+    border-radius: 10px;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.user-details {
+    margin: 0 auto;
+    max-width: 270px;
+
+}
+
+.user-img {
+    margin-bottom: 15px;
+}
+
+.user-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nameofuser {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0 5px;
+}
+
+.profession {
+    font-size: 1rem;
+    color: #777;
+}
+
+.user-text-thought {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .customer-review-slider {
+        padding: 40px 10px;
+    }
+
+    .customer-review-box {
+        padding: 15px;
+    }
+
+    .user-details {
+        max-width: 100%;
+    }
+}
+
+        /* About Us Section */
+.about-us-section {
+    /* padding: 60px 20px; */
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    /* background-color: #f9f9f9; Light background for contrast */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.about-us-section .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.partner {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #1a5276; /* Dark blue color */
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.partner::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: #1abc9c; /* Teal color */
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.about-us-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-us-item {
+    font-size: 1.2rem;
+    color: #555; /* Dark gray color for text */
+    background: #fff;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for each item */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-us-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.about-us-img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow:5px 4px 8px 3px rgba(231, 229, 229, 0.804); /* Subtle shadow for the image */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .partner {
+        font-size: 1.8rem;
+    }
+
+    .about-us-item {
+        font-size: 1rem;
+    }
+
+    .about-us-img {
+        margin-top: 20px;
+    }
+}
+
+        /* Loan Application Process Section */
+.loan-application-process {
+    padding: 40px 20px;   
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 10px 4px 8px rgba(169, 166, 166, 0.1); /* Subtle shadow for depth */
+}
+
+.loan-application-process .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ddd; /* Dark blue color */
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: #1abc9c; /* Teal color */
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.steps-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.step-item {
+    background-color: #122231;
+    flex: 1 1 30%;
+    max-width: 30%;
+}
+
+.step-box {
+    background:#3d4955;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.step-box:hover {
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.585);
+}
+
+.step-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1abc9c; /* Teal color */
+    margin-bottom: 15px;
+}
+
+.step-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:#ddd; /* Dark blue color */
+    margin-bottom: 10px;
+}
+
+.step-text {
+    font-size: .9rem;
+    color:#ddd; /* Dark gray color for text */
+    margin-bottom: 15px;
+}
+
+.step-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .steps-wrapper {
+        flex-direction: column;
+    }
+
+    .step-item {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .step-number {
+        font-size: 1.8rem;
+    }
+
+    .step-title {
+        font-size: 1.3rem;
+    }
+
+    .step-text {
+        font-size: 0.95rem;
+    }
+}
+
+        /* Custom CSS for navbar */
+        .navbar {
+            background-color: #0d2d51 !important;
+        }
+        .navbar-brand {
+            color: #fff !important;
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ddd !important;
+        }
+
+        /* Main box styling */
+        .main-box-first {
+            padding: 30px;
+            margin-top: 50px;
+            color: #fff;
+            background: #0d2d51;
+            border-radius: 10px;
+        }
+        .loan-left-text {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .highlight {
+            color: #f39c12;
+        }
+        .highlight-red {
+            color: #e74c3c;
+        }
+        .loan-down-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        .application-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .application-link:hover {
+            background-color: #e67e22;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            animation: zoomIn 1s ease-out;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* What We Offer Section */
+        .what-we-offer {
+            /* padding: 60px 0; */
+            /* background-color: #fff; */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .partner {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 60px;
+          
+            color: #f39c12;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .partner::before, .partner::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: #f39c12;
+            bottom: -10px;
+            border-radius: 5px;
+        }
+        .partner::after {
+            background: #e74c3c;
+            width: 40px;
+            left: calc(50% - 20px);
+        }
+
+        .gif-box {
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding box shadow */
+}
+
+.gif-box:hover {
+    transform: scale(1.05);
+    box-shadow: rgb(247 247 247 / 20%); /* Enhanced shadow on hover */
+}
+
+.gif-box img {
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    animation: zoomIn 1s ease-out;
+}
+
+        .gif-bottom-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #cecece;
+        }
+        .gif-box-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
+            .navbar-toggler {
+                border-color: #fff;
+            }
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M5 7h20M5 15h20M5 23h20'/%3E%3C/svg%3E");
+            }
+            .main-box-first {
+                padding: 20px;
+                text-align: center;
+            }
+            .loan-left-text {
+                font-size: 1.8rem;
+            }
+            .loan-down-text {
+                font-size: 1rem;
+            }
+            .partner {
+                font-size: 1.5rem;
+            }
+            .gif-box img {
+                max-width: 80px;
+            }
+            .gif-bottom-text {
+                font-size: 1rem;
+            }
+            .gif-box-row {
+                gap: 15px;
+            }
+        }
+        .watch-video {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+  /* Modal Content Background and Overlay */
+  .modal-content {
+        background-image: url('/assets/img/about-us.gif');
+        background-size: cover; /* Ensure the image covers the modal */
+        background-position: center; /* Center the image */
+        color: #fff; /* Set a base text color for readability */
+        border-radius: 8px; /* Rounded corners for a modern look */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+        border: none; /* Remove border for a cleaner look */
+    }
+
+    /* Modal Header */
+    .modal-header {
+        background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+        color: #fff; /* White text color */
+        border-bottom: 1px solid #444; /* Light border at the bottom */
+        padding: 16px;
+        border-top-left-radius: 8px; /* Round top corners */
+        border-top-right-radius: 8px;
+    }
+
+    /* Close Button */
+    .modal-header .close {
+        color: #fff; /* White color for close button */
+        opacity: 0.7; /* Slightly transparent */
+        font-size: 1.5rem; /* Larger close button */
+    }
+
+    .modal-header .close:hover {
+        opacity: 1; /* Full opacity on hover */
+    }
+
+    /* Modal Body */
+    .modal-body {
+        background: rgba(0, 0, 0, 0.5); /* Darker semi-transparent background */
+        padding: 24px; /* Add padding for better spacing */
+    }
+
+    /* Form Elements */
+    .modal-body .form-control {
+        background-color: rgba(255, 255, 255, 0.9); /* Light background for form controls */
+        color: #333; /* Dark text color for form fields */
+        border-radius: 4px; /* Rounded corners for inputs */
+        border: 1px solid #ddd; /* Light border for inputs */
+        margin-bottom: 16px; /* Spacing between fields */
+    }
+
+    .modal-body .form-control::placeholder {
+        color: #999; /* Placeholder text color */
+    }
+
+    .modal-body select.form-control {
+        background-color: rgba(255, 255, 255, 0.9); /* Consistent with form controls */
+    }
+
+    /* Submit Button */
+    .modal-body .btn-primary {
+        background-color: #007bff; /* Blue background */
+        border-color: #007bff; /* Matching border color */
+        color: #fff; /* White text color */
+        font-size: 1rem; /* Larger text for better readability */
+        padding: 12px; /* Increased padding */
+        border-radius: 4px; /* Rounded corners */
+        transition: background-color 0.3s ease; /* Smooth transition on hover */
+    }
+
+    .modal-body .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #004080; /* Matching border color */
+    }
+    </style>
+</head>
+<body style="background: #122231; color: #333;">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><img src="/assets/img/quick.png" width="70px" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#AboutUs">AboutUs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#HowToApply">HowToApply</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Reg"  style="font-size: 16px; font-weight: bold;">
+                      <span style="padding: 6px 15px; border-radius: 10px; background-color: rgb(6, 99, 192);">Login</span>
+                    </a>
+                  </li>
+            </ul>
+        </div>
+    </nav>
+<!-- model of login  -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Registration</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form id="registrationForm">
+                  <div class="form-group">
+                      <label for="phoneNumber">Phone Number</label>
+                      <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input type="text" class="form-control" id="Username" placeholder="Enter your Username">
+                </div>
+                  <div class="form-group">
+                      <label for="income">Income</label>
+                      <input type="number" class="form-control" id="income" placeholder="Enter your income">
+                  </div>
+                  <div class="form-group">
+                      <label for="jobType">Job Type</label>
+                      <select class="form-control" id="jobType">
+                          <option value="">Select job type</option>
+                          <option value="government">Government</option>
+                          <option value="private">Private</option>
+                          <option value="business">Business</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="address">Address</label>
+                      <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Register</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row main-box-first">
+            <div class="col-md-7">
+                <h1 class="loan-left-text">
+                    Unlock Your Future with <span class="highlight">Fast & Simple</span> Collateral-Free
+                    <span class="highlight-red">Loans</span>
+                </h1>
+                <p class="loan-down-text">
+                    Empowering Your Business Dreams with <span class="highlight">Seamless</span> Financial Solutions
+                </p>
+                <p class="application" id="applicationSection">
+                  <a class="application-link" href="#" data-toggle="modal" data-target="#loginModal">
+                      Apply Now
+                  </a>
+              </p>
+          
+              <!-- Login button section -->
+              <p class="login hidden" id="loginButtonSection">
+                <a class="nav-link" href="/Reg"  style="font-size: 16px; font-weight: bold;">
+                  <span style="padding: 6px 15px; border-radius: 10px; background-color: rgb(6, 99, 192);">Login</span>
+                </a>
+              </p>
+          
+          
+            </div>
+            <div class="col-md-5 text-center d-flex justify-content-center">
+                <img src="/assets/img/loannew.webp" alt="Loan Image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Slider section -->
+    <div class="container" id="OurPackage">
+        <div class="box-slider">
+            <h5 class="partner">Our Partners</h5>
+            <div class="slider">
+                <div class="box-img">
+                    <img src="/assets/img/iifl-loan.png" alt="Ambit" />
+                </div>
+                <div class="box-img">
+                    <img src="/assets/img/AxisBank-logo.png" width="85%" alt="Axis Bank" />
+                </div>
+                <div class="box-img">
+                    <img src="/assets/img/icic.png" alt="ICIC" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- What We Offer Section -->
+    <div class="what-we-offer" id="WhatWeOffer">
+        <div class="container">
+            <h5 class="partner">What We Offer</h5>
+            <div class="row gif-box-row">
+                <div class="col-md-3 col-sm-6 gif-box">
+                    <img src="/assets/img/collateral-fee.gif" alt="Up To 50 Lakh" class="gif-section-img" />
+                    <p class="gif-bottom-text">Up To 50 Lakh Loan</p>
+                </div>
+                <div class="col-md-3 col-sm-6 gif-box">
+                    <img src="/assets/img/low-processing-fee.gif" alt="Easy Process" class="gif-section-img" />
+                    <p class="gif-bottom-text">Easy Process</p>
+                </div>
+                <div class="col-md-3 col-sm-6 gif-box">
+                    <img src="/assets/img/step_3.gif" alt="Quick Approval" class="gif-section-img" />
+                    <p class="gif-bottom-text">Quick Approval</p>
+                </div>
+                <div class="col-md-3 col-sm-6 gif-box">
+                    <img src="/assets/img/up-to-50-lakh.gif" alt="Low Interest Rates" class="gif-section-img" />
+                    <p class="gif-bottom-text">Low Interest Rates</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- video section  -->
+    <div class="container">
+        <h5 class="partner">Watch Video</h5>
+        <div class="row watch-video">
+          <video width="90%" controls>
+            <source src=/assets/img/loanvideo.mp4 type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- processing fess -->
+
+      <div class="loan-application-process" id="HowToApply">
+        <div class="container">
+          <h5 class="section-title">How Do I Apply For a Loan?</h5>
+          <div class="steps-wrapper">
+            <div class="step-item">
+              <div class="step-box">
+                <p class="step-number">Step 1</p>
+                <h5 class="step-title">Fill out the application form</h5>
+                <p class="step-text">
+                  Fill out the application form by entering basic details through Tradeudhaar Customer Journey.
+                </p>
+                <Image src="/assets/img/how.gif"  width="55%" alt="Step 1" class="step-image" />
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-box">
+                <p class="step-number">Step 2</p>
+                <h5 class="step-title">Complete your application</h5>
+                <p class="step-text">
+                  Provide your basic documentation for taking a business loan which includes GST, KYC documents.
+                </p>
+                <Image src="/assets/img/step_2.gif"  width="55%" alt="Step 2" class="step-image" />
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-box">
+                <p class="step-number">Step 3</p>
+                <h5 class="step-title">Receive your Loan</h5>
+                <p class="step-text">
+                  Once your loan is sanctioned, you will receive the amount in your bank account in a few working days.
+                </p>
+                <Image src="/assets/img/step_3.gif"  width="55%" alt="Step 3" class="step-image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About us -->
+      <div class="about-us-section" id="AboutUs">
+        <div class="container">
+          <h5 class="partner">About Us</h5>
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <ul class="about-us-list">
+                <li class="about-us-item">
+                  Our company is committed to providing hassle-free loan solutions to small and medium enterprises.
+                </li>
+                <li class="about-us-item">
+                  We offer competitive interest rates and flexible repayment options.
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6 text-center">
+              <Image src="/assets/img/about-us.gif" alt="About Us" class="about-us-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- customer-review  -->
+      <div class="customer-review-slider">
+        <div class="slider">
+            <div class="customer-review-box">
+                <div class="user-details">
+                    <div class="user-img">
+                        <span>
+                            <img src="/assets/img/client3.jpg" alt="Sushant Verma">
+                        </span>
+                        <h3 class="nameofuser">Sushant Verma</h3>
+                        <p class="profession">Marvel Enterprises</p>
+                    </div>
+                    <div class="user-text-thought">
+                        Great service and support. Highly recommend! The team was very responsive and ensured everything was delivered on time.
+                    </div>
+                </div>
+            </div>
+            <div class="customer-review-box">
+                <div class="user-details">
+                    <div class="user-img">
+                        <span>
+                            <img src="/assets/img/client2.jpg" alt="Another User">
+                        </span>
+                        <h3 class="nameofuser">Another User</h3>
+                        <p class="profession">Zara Textile Company</p>
+                    </div>
+                    <div class="user-text-thought">
+                        Fantastic experience, very satisfied! The quality of work exceeded our expectations, and the attention to detail was impressive.
+                    </div>
+                </div>
+            </div>
+            <div class="customer-review-box">
+                <div class="user-details">
+                    <div class="user-img">
+                        <span>
+                            <img src="/assets/img/client1.jpg" alt="Abinav Textile User">
+                        </span>
+                        <h3 class="nameofuser">Abinav Textile User</h3>
+                        <p class="profession">Infoses</p>
+                    </div>
+                    <div class="user-text-thought">
+                        Excellent quality and timely delivery! The team went above and beyond to ensure our requirements were met perfectly.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>      
+<!-- footer  -->
+<footer class="footer">
+    <section class="section">
+      <div class="connect">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="row">
+        <div class="column">
+          <h6 class="title">
+            <i class="fas fa-gem"></i> QuickLoan
+          </h6>
+          <p>
+            We Help to Complete Your Dream , We Provide you 
+            <span class="highlight-red">Trustable</span> 
+            <span class="highlight-info">Scalable</span> 
+            and 
+            <span class="highlight-slateblue">Flexible</span> 
+            Amount of Loan For Your Dream
+          </p>
+        </div>
+        <div class="column">
+          <h6 class="title">Products</h6>
+          <p>
+            <a href="#!" class="link">Loan</a>
+          </p>
+          <p>
+            <ul style="list-style: none; display: flex; padding: 0; margin: 0;">
+                <li style="padding: 0 20px;">
+                    <a href="https://www.instagram.com" style="color: white; text-decoration: none;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li style="padding: 0 20px;">
+                    <a href="https://wa.me" style="color: white; text-decoration: none;">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li style="padding: 0 20px;">
+                    <a href="https://twitter.com" style="color: white; text-decoration: none;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+            
+          </p>
+        </div>
+
+        <div class="column">
+          <h6 class="title">Contact</h6>
+          <p>
+            <i class="fas fa-home"></i> 9549880557
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i> Worldpay472@gmail.com
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="copy">
+      <a href="#" class="link">Worldpay472@gmail.com</a>
+    </div>
+  </footer>
+      <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Slick Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+  const loginButton = document.getElementById("loginButton");
+  const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
+
+  loginButton.addEventListener("click", function () {
+    loginModal.show();
+  });
+});
+
+
+document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const Username=document.getElementById('Username').value
+    const income = document.getElementById('income').value;
+    const jobType = document.getElementById('jobType').value;
+    const address = document.getElementById('address').value;
+
+    const data = { phoneNumber, email, password, income, jobType, address ,Username};
+    console.log(phoneNumber, email, password, income, jobType, address, "phoneNumber, email, password, income, jobType, address");
+
+    try {
+        const response = await fetch('https://quicklone.com/back/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        console.log('Response status:', response.status);
+
+        const result = await response.json();
+
+        console.log('Response data:', result);
+
+        if (response.ok) {
+            alert('Registration successful!');
+            window.location.href = '/Reg';
+        } else {
+            alert(`Registration failed: ${result.msg}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while registering. Please try again later.');
+    }
+});
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    <script>
+     function decodeJWT(token) {
+            try {
+                return jwt_decode(token);
+            } catch (error) {
+                console.error('Error decoding token:', error);
+                throw new Error('Invalid token');
+            }
+        }
+
+        // Retrieve token from localStorage
+        const token = localStorage.getItem('tokenData');
+
+        // Check if token exists
+        if (!token) {
+            // No token means user is not logged in
+            document.getElementById('loginButtonSection').style.display = 'none';
+            document.getElementById('applicationSection').style.display = 'block';
+        } else {
+            try {
+                // Decode the token
+                const tokenData = decodeJWT(token);
+
+                // Extract user ID
+                const userId = tokenData.user ? tokenData.user.id : null;
+
+                if (userId) {
+                    // User ID present means the user is logged in
+                    document.getElementById('applicationSection').style.display = 'none';
+                    document.getElementById('loginButtonSection').style.display = 'block';
+                } else {
+                    // User ID not present
+                    document.getElementById('loginButtonSection').style.display = 'none';
+                    document.getElementById('applicationSection').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error processing token:', error);
+                document.getElementById('loginButtonSection').style.display = 'none';
+                document.getElementById('applicationSection').style.display = 'block';
+            }
+        }
+  </script>
+</body>
+</html>
