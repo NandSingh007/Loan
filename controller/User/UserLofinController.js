@@ -676,7 +676,7 @@ exports.checkStatatSecurity = async (req, res) => {
 
   try {
     // Find the document in SecurityData where the userId matches
-    const securityData = await SecurityData.findOne({ userId });
+    const securityData = await processingFeeData.findOne({ userId });
     console.log(securityData.Status, "securityData");
     // Check if securityData exists and return the Status
     if (securityData) {
