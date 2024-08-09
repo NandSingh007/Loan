@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   const token = req.cookies.token; // Make sure you have cookie-parser middleware in use
 
   if (!token) {
-    return res.redirect("/back/home"); // Redirect to login if no token
+    return res.redirect("/back"); // Redirect to login if no token
   }
 
   try {
@@ -14,6 +14,6 @@ module.exports = (req, res, next) => {
     req.user = decoded; // Attach user info to request object
     next();
   } catch (err) {
-    res.redirect("/back/home"); // Redirect to login if token is not valid
+    res.redirect("/back"); // Redirect to login if token is not valid
   }
 };

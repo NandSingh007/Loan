@@ -410,6 +410,9 @@ body {
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/emi">Check Emi <span class="sr-only">(current)</span></a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -528,7 +531,7 @@ body {
 <!-- Loading Overlay -->
 <div id="loadingOverlay" class="loading-overlay">
     <div class="loading-circle"></div>
-    <div>Loading...</div>
+    <div>Document Scanning...</div>
 </div>
 
 <script>// Function to collect all form data including files
@@ -763,7 +766,7 @@ function submitForms() {
 <script>
   async function fetchLoanTypes() {
     try {
-        const response = await fetch('https://quicklone.com/GetLoanTypes');
+        const response = await fetch('https://quicklone.com/back/GetLoanTypes');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

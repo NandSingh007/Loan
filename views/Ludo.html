@@ -137,7 +137,7 @@
       status,
     };
     // fetch data using the API endpoint
-    fetch('https://admin.quicklone.com/LudoControllerPrice', {
+    fetch('https://quicklone.com/LudoControllerPrice', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ async function submitForm() {
 
     try {
       const response = await axios.post(
-        "https://admin.quicklone.com/LudoControllerPrice",
+        "https://quicklone.com/LudoControllerPrice",
         {gameName,gamePrice,winerPrice,player,logoimg,backgroundimg},
         {
           headers: {

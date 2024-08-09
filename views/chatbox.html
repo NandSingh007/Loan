@@ -6,7 +6,7 @@
       <script>
   function shubham(id) {
     // Fetch data from the server
-    fetch(`https://admin.quicklone.com/findcollectionofmessage/${id}`)
+    fetch(`https://quicklone.com/findcollectionofmessage/${id}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -65,7 +65,7 @@
 
     <script src="https://cdn.socket.io/4.1.3/socket.io.min.js"></script>
     <script>
-        const socket = io("https://admin.quicklone.com");
+        const socket = io("https://quicklone.com");
 
         function sendMessage() {
          

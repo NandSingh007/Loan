@@ -9,6 +9,22 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+  .emi-calculator {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#results {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+</style>
 <body>
 
   <!-- Header included -->
@@ -33,6 +49,7 @@
                     <th scope="col">Sr. No</th>
                     <th scope="col">Loan Type</th>
                     <th scope="col">Interest (%)</th>
+                    <th scope="col">Limit</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -42,9 +59,10 @@
                     <td><%= index + 1 %></td>
                     <td><%= item.loanType %></td>
                     <td><%= item.interest %>%</td>
+                    <td><%= item.limit %></td>
                     <td>
                       <button class="btn btn-danger delete-btn" data-id="<%= item._id %>" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash-alt"></i></button>
-                      <button class="btn btn-primary edit-btn" data-toggle="modal" data-target="#editModal" data-id="<%= item._id %>" data-loantype="<%= item.loanType %>" data-interest="<%= item.interest %>"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-primary edit-btn" data-toggle="modal" data-target="#editModal" data-id="<%= item._id %>" data-loantype="<%= item.loanType %>" data-interest="<%= item.interest %>" data-limit="<%= item.limit %>"><i class="fas fa-edit"></i></button>
                     </td>
                   </tr>
                   <% }); %>
@@ -76,6 +94,10 @@
             <div class="form-group">
               <label for="interest">Interest (%)</label>
               <input type="number" class="form-control" id="interest" name="interest" placeholder="Enter Interest Rate" required>
+            </div>
+            <div class="form-group">
+              <label for="limit">Limit</label>
+              <input type="number" class="form-control" id="limit" name="limit" placeholder="Enter Limit" required>
             </div>
             <button type="submit" class="btn btn-success">Add Loan</button>
           </form>
@@ -131,6 +153,10 @@
               <label for="editInterest">Interest (%)</label>
               <input type="number" class="form-control" id="editInterest" name="editInterest" placeholder="Enter Interest Rate" required>
             </div>
+            <div class="form-group">
+              <label for="editLimit">Limit</label>
+              <input type="number" class="form-control" id="editLimit" name="editLimit" placeholder="Enter Limit" required>
+            </div>
             <button type="submit" class="btn btn-primary">Save Changes</button>
           </form>
         </div>
@@ -141,6 +167,7 @@
     </div>
   </div>
   <!-- End Modal EDIT Loan -->
+
 
   <!-- Footer included -->
   <%- include("include/footer.ejs") -%>
@@ -164,18 +191,22 @@
 
         const formData = {
           loanType: $('#loanType').val(),
-          interest: $('#interest').val()
+          interest: $('#interest').val(),
+          limit: $('#limit').val(),
         };
 
         $.ajax({
-          url: 'https://admin.quicklone.com/LoanTypes',
+          url: 'https://quicklone.com/back/LoanTypes',
           method: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(formData),
           success: function (response) {
             console.log('Loan added successfully:', response);
-            // Refresh the page or update the table here
+            $('#exampleModal').modal('hide');
             location.reload();
+          },
+          error: function (error) {
+            console.error('Error adding loan:', error);
           }
         });
       });
@@ -185,31 +216,37 @@
         const id = $(this).data('id');
         const loanType = $(this).data('loantype');
         const interest = $(this).data('interest');
+        const limit = $(this).data('limit');
 
         $('#editLoanId').val(id);
         $('#editLoanType').val(loanType);
         $('#editInterest').val(interest);
+        $('#editLimit').val(limit);
       });
 
       // Edit Loan form submission
       $('#editLoanForm').submit(function (event) {
         event.preventDefault();
 
+        const id = $('#editLoanId').val();
         const formData = {
           loanType: $('#editLoanType').val(),
-          interest: $('#editInterest').val()
+          interest: $('#editInterest').val(),
+          limit: $('#editLimit').val(),
         };
-        const id = $('#editLoanId').val();
 
         $.ajax({
-          url: `https://admin.quicklone.com/editlontype/${id}`,
+          url: `https://quicklone.com/back/editlontype/${id}`,
           method: 'PUT',
           contentType: 'application/json',
           data: JSON.stringify(formData),
           success: function (response) {
             console.log('Loan updated successfully:', response);
-            // Refresh the page or update the table here
+            $('#editModal').modal('hide');
             location.reload();
+          },
+          error: function (error) {
+            console.error('Error updating loan:', error);
           }
         });
       });
@@ -217,24 +254,50 @@
       // Delete button click event
       $('.delete-btn').on('click', function () {
         const id = $(this).data('id');
-        $('#deleteModal').data('id', id);
+        $('.delete-confirm-btn').data('id', id);
       });
 
-      // Delete confirmation button click event
+      // Confirm delete button click event
       $('.delete-confirm-btn').on('click', function () {
-        const id = $('#deleteModal').data('id');
+        const id = $(this).data('id');
 
         $.ajax({
-          url: `https://admin.quicklone.com/deleteloan/${id}`,
+          url: `https://quicklone.com/back/deleteloan/${id}`,
           method: 'DELETE',
           success: function (response) {
             console.log('Loan deleted successfully:', response);
-            // Refresh the page or update the table here
+            $('#deleteModal').modal('hide');
             location.reload();
+          },
+          error: function (error) {
+            console.error('Error deleting loan:', error);
           }
         });
       });
     });
+  </script>
+  <script>
+    document.getElementById('emiForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Retrieve values from the form
+  const amount = parseFloat(document.getElementById('amount').value);
+  const annualInterest = parseFloat(document.getElementById('interest').value);
+  const duration = parseInt(document.getElementById('duration').value);
+
+  // Calculate EMI
+  const monthlyInterest = annualInterest / 12 / 100;
+  const emi = amount * monthlyInterest / (1 - Math.pow(1 + monthlyInterest, -duration));
+  const totalPayment = emi * duration;
+
+  // Calculate total balance with charges (assuming charges are included in total payment)
+  const totalBalance = totalPayment.toFixed(2);
+
+  // Update the results section
+  document.getElementById('emiAmount').textContent = `$${emi.toFixed(2)}`;
+  document.getElementById('totalBalance').textContent = `$${totalBalance}`;
+});
+
   </script>
 </body>
 </html>

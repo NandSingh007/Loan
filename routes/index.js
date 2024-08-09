@@ -11,6 +11,7 @@ const {
   getProcessingFeeDataWithStatusZero,
   securityAmount,
   getProcessingFeeDataWithStatusOne,
+  fetchCompanyProfiletwo,
   CompanyProfileScn,
   getSecurityFeeDataWithStatusOneFront,
   // AddAdmin,
@@ -212,7 +213,7 @@ router.get("/pages-contact", (req, res) => {
 router.get("/Bonus", async (req, res) => {
   // res.render("bonus", { title: "Bonus", currentRoute: req.url });
   try {
-    const response = await axios.get("https://quicklone.com/back/GetLoanTypes"); // Replace with your API endpoint
+    const response = await axios.get("https://quicklone.com/back/GetLoanTypes"); // Replace w"ith your API endpoint
     const data = response.data;
     // console.log(data);
     res.render("Bonus", {
@@ -358,9 +359,11 @@ router.post("/step1Details", step1Details);
 router.post("/editname", EditName);
 router.post("/stepfourdetails", stepfourdetails);
 router.put("/updatePackage/:id", updatePackage);
+// ("");
 router.get("/FetchPackageDataController", FetchPackageDataController);
 router.post("/PackageDataController", PackageDataController);
 router.get("/fetchCompanyProfile", fetchCompanyProfile);
+router.get("/fetchCompanyProfiletwo/:userId", fetchCompanyProfiletwo);
 router.post("/processingFeeDataFetchStatus", processingFeeDataFetchStatus);
 router.get(
   "/getProcessingFeeDataWithStatusTwo",

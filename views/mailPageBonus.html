@@ -265,8 +265,8 @@
       dateMail
     };
 
-const url1 = 'https://admin.quicklone.com/MailForUserData';
-const url2 = 'https://admin.quicklone.com/MailForHistory';
+const url1 = 'https://quicklone.com/MailForUserData';
+const url2 = 'https://quicklone.com/MailForHistory';
     try {
     const [response1, response2] = await Promise.all([
       postData(url1, formData), // First POST request
@@ -301,7 +301,7 @@ location.reload();
 
 async function shubham(SingleMailUseredata) {
   // try {
-    window.location.href = `https://admin.quicklone.com/SingleMalForUser/${SingleMailUseredata}`;
+    window.location.href = `https://quicklone.com/SingleMalForUser/${SingleMailUseredata}`;
   //   if (!response.ok) {
   //     throw new Error('Network response was not ok');
   //   }
@@ -374,7 +374,7 @@ const submitFormSingle = async() =>{
       MailTypedata,
       dateMail
     };
-    fetch('https://admin.quicklone.com/SingleMailPost', {
+    fetch('https://quicklone.com/SingleMailPost', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -440,8 +440,8 @@ document.addEventListener('DOMContentLoaded', function () {
         Id
       };
 
-      const url1 = 'https://admin.quicklone.com/MailHistoryEditforUser';
-      const url2 = 'https://admin.quicklone.com/MailHistoryEdit';
+      const url1 = 'https://quicklone.com/MailHistoryEditforUser';
+      const url2 = 'https://quicklone.com/MailHistoryEdit';
 
       const [response1, response2] = await Promise.all([
         postData(url1, formData), // First POST request
@@ -478,8 +478,8 @@ document.addEventListener('DOMContentLoaded', function async() {
           Id,Name
         };
         // Send a POST request to delete the slider image
-        const url1 = 'https://admin.quicklone.com/MailHistoryDelete';
-const url2 = 'https://admin.quicklone.com/MailAllUserDelete';
+        const url1 = 'https://quicklone.com/MailHistoryDelete';
+const url2 = 'https://quicklone.com/MailAllUserDelete';
     try {
     const [response1, response2] = await Promise.all([
       postData(url1, formData), // First POST request

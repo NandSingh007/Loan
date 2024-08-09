@@ -169,7 +169,7 @@
 
     };
     // fetch data using the API endpoint
-    fetch('https://admin.quicklone.com/GamePricePost', {
+    fetch('https://quicklone.com/GamePricePost', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const deleteModalButton = document.querySelector('#myModal .delete-modal-btn');
     deleteModalButton.addEventListener('click', function () {
         const index = deleteModalButton.getAttribute('data-index');
-        fetch(`https://admin.quicklone.com/GamePricePostdelete/${index}`, {
+        fetch(`https://quicklone.com/GamePricePostdelete/${index}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

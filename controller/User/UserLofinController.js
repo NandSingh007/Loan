@@ -137,16 +137,16 @@ exports.loginNumber = async (req, res) => {
 };
 exports.LoanTypes = async (req, res) => {
   try {
-    // console.log(loanType, interest, "loanType, interest ");
-    const { loanType, interest } = req.body;
-    if (!loanType || !interest) {
+    const { loanType, interest, limit } = req.body;
+    if (!loanType || !interest || !limit) {
       return res
         .status(400)
-        .json({ message: "Loan Type and Interest are required" });
+        .json({ message: "Loan Type, Interest, and Limit are required" });
     }
     const newLoan = new LoanTypeDatas({
       loanType,
-      interest
+      interest,
+      limit
     });
 
     await newLoan.save();
@@ -249,11 +249,19 @@ exports.deleteloan = async (req, res) => {
 exports.editlontype = async (req, res) => {
   try {
     const { id } = req.params;
-    const { loanType, interest } = req.body;
+    const { loanType, interest, limit } = req.body;
+
+    // Ensure all required fields are present
+    if (!loanType || !interest || limit === undefined) {
+      return res
+        .status(400)
+        .json({ error: "Loan Type, Interest, and Limit are required" });
+    }
+
     // Find the loan type by ID and update it
     const updatedLoanType = await LoanTypeDatas.findByIdAndUpdate(
       id,
-      { loanType, interest },
+      { loanType, interest, limit },
       { new: true }
     );
 
@@ -261,7 +269,10 @@ exports.editlontype = async (req, res) => {
       return res.status(404).json({ error: "Loan type not found" });
     }
 
-    res.json(updatedLoanType);
+    res.json({
+      message: "Loan type updated successfully",
+      loan: updatedLoanType
+    });
   } catch (error) {
     console.error("Error updating loan type:", error);
     res.status(500).json({ error: "Failed to update loan type" });
@@ -370,6 +381,56 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname)); // Append the file extension
   }
 });
+
+exports.fetchCompanyProfiletwo = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    console.log(userId);
+
+    // Fetch company profile (assuming it is global or default for all users)
+    const companyProfile = await CompanyProfile.findOne({});
+
+    // Fetch user registration details
+    const user = await FileUpload.findOne({ userId: userId });
+
+    // If company profile or user registration details are not found, return null
+    if (!companyProfile || !user) {
+      return res.status(200).json({
+        success: true,
+        message: "Data not found",
+        data: {
+          companyProfile: companyProfile || null,
+          user: user || null
+        }
+      });
+    }
+    // Extract jobType from user data
+    const { loanType } = user;
+    console.log(loanType, "jobType");
+    // Fetch loan types based on jobType
+    // Assuming 'loanType' is a string field in LoanTypeDatas model
+    const loanTypes = await LoanTypeDatas.find({ loanType }).select("limit");
+
+    // console.log(loanTypes)
+    // loanTypes.forEach((doc) => {
+    //   console.log(doc.loanType);
+    // });
+
+    // Return the results
+    res.status(200).json({
+      success: true,
+      message: "Profile fetched successfully",
+      data: {
+        companyProfile,
+        user,
+        loanTypes
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching company profile:", error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};
 
 const upload = multer({ storage: storage });
 exports.step2Details = [
@@ -1001,35 +1062,39 @@ exports.updateCompanyProfile = async (req, res) => {
     const { charges1, charges2, address, contactNo, email, upiId, nameOnUPI } =
       req.body;
 
-    // Convert buffer to Base64 string if file is present
-    const paymentQRCharges1 = req.files["paymentQRCharges1"]
-      ? req.files["paymentQRCharges1"][0].buffer.toString("base64")
-      : null;
-    const paymentQRCharges2 = req.files["paymentQRCharges2"]
-      ? req.files["paymentQRCharges2"][0].buffer.toString("base64")
-      : null;
-    const Signature = req.files["Signature"]
-      ? req.files["Signature"][0].buffer.toString("base64")
-      : null;
-    const logo = req.files["logo"]
-      ? req.files["logo"][0].buffer.toString("base64")
-      : null;
+    // Initialize an update object
+    let updateFields = {};
+
+    // Check each field and add to update object if it's not null or undefined
+    if (charges1) updateFields.charges1 = charges1;
+    if (charges2) updateFields.charges2 = charges2;
+    if (address) updateFields.address = address;
+    if (contactNo) updateFields.contactNo = contactNo;
+    if (email) updateFields.email = email;
+    if (upiId) updateFields.upiId = upiId;
+    if (nameOnUPI) updateFields.nameOnUPI = nameOnUPI;
+
+    // Convert buffer to Base64 string if files are present
+    if (req.files["paymentQRCharges1"]) {
+      updateFields.paymentQRCharges1 =
+        req.files["paymentQRCharges1"][0].buffer.toString("base64");
+    }
+    if (req.files["paymentQRCharges2"]) {
+      updateFields.paymentQRCharges2 =
+        req.files["paymentQRCharges2"][0].buffer.toString("base64");
+    }
+    if (req.files["Signature"]) {
+      updateFields.Signature =
+        req.files["Signature"][0].buffer.toString("base64");
+    }
+    if (req.files["logo"]) {
+      updateFields.logo = req.files["logo"][0].buffer.toString("base64");
+    }
+
     // Update or create the company profile document
     const updatedProfile = await CompanyProfile.findOneAndUpdate(
       {}, // Assuming there's only one company profile document to update
-      {
-        charges1,
-        charges2,
-        address,
-        contactNo,
-        Signature,
-        email,
-        paymentQRCharges1,
-        paymentQRCharges2,
-        logo,
-        upiId,
-        nameOnUPI
-      },
+      { $set: updateFields }, // Use $set to update only provided fields
       { new: true, upsert: true }
     );
 
@@ -1043,6 +1108,7 @@ exports.updateCompanyProfile = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
+
 exports.CompanyProfileScn = async (req, res) => {
   try {
     const data = await CompanyProfile.find(
@@ -1188,8 +1254,17 @@ exports.FetchPersonalUserdetails = async (req, res) => {
       return res.status(400).json({ message: "User ID is required." });
     }
 
+    // Fetch company profile data for charges1 and charges2
+    const companyProfile = await CompanyProfile.findOne(
+      {},
+      "charges1 charges2"
+    );
+    if (!companyProfile) {
+      return res.status(404).json({ message: "Company profile not found." });
+    }
+
     // Fetch user details from the Registration table
-    const registrationData = await Registration.findOne({ _id: userId });
+    const registrationData = await Registration.findById(userId);
     if (!registrationData) {
       return res
         .status(404)
@@ -1204,7 +1279,7 @@ exports.FetchPersonalUserdetails = async (req, res) => {
         .json({ message: "User not found in FileUpload table." });
     }
 
-    // Extract the loanType from registrationData
+    // Extract the loanType from fileUploadData
     const { loanType } = fileUploadData;
 
     // Fetch the loan type data from the LoanTypeDatas table
@@ -1217,7 +1292,9 @@ exports.FetchPersonalUserdetails = async (req, res) => {
     const userDetails = {
       ...registrationData.toObject(), // Convert Mongoose document to plain object
       ...fileUploadData.toObject(), // Convert Mongoose document to plain object
-      loanTypeDetails: loanTypeData || {} // Include an empty object if loanTypeData is not found
+      loanTypeDetails: loanTypeData || {}, // Include an empty object if loanTypeData is not found
+      charges1: companyProfile.charges1 || 0,
+      charges2: companyProfile.charges2 || 0
     };
 
     // Respond with the combined user details

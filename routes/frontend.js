@@ -19,6 +19,12 @@ router.get("/Reg", authMiddleware, (req, res) => {
     currentRoute: req.url
   });
 });
+router.get("/emi", authMiddleware, (req, res) => {
+  res.render("Frontend/Emi", {
+    title: "home",
+    currentRoute: req.url
+  });
+});
 
 router.get("/Other", authMiddleware, (req, res) => {
   res.render("Frontend/OtherForm", {
@@ -26,7 +32,12 @@ router.get("/Other", authMiddleware, (req, res) => {
     currentRoute: req.url
   });
 });
-
+router.get("/sans", authMiddleware, (req, res) => {
+  res.render("Frontend/sansction", {
+    title: "home",
+    currentRoute: req.url
+  });
+});
 router.get("/Download", authMiddleware, (req, res) => {
   res.render("Frontend/DownLoad", {
     title: "home",

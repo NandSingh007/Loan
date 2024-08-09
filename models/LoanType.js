@@ -5,7 +5,10 @@ const LoanTypeData = new mongoose.Schema({
     type: String,
     required: true
   },
-
+  limit: {
+    type: Number,
+    required: true
+  },
   interest: {
     type: Number,
     required: true
